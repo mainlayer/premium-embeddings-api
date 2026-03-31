@@ -2,7 +2,7 @@
 Mainlayer billing integration.
 
 Mainlayer is the per-call payment infrastructure for AI APIs.
-Base URL: https://api.mainlayer.xyz
+Base URL: https://api.mainlayer.fr
 Auth:     Authorization: Bearer <api_key>
 
 This module handles:
@@ -25,7 +25,7 @@ logger = logging.getLogger(__name__)
 
 MAINLAYER_API_KEY: str = os.environ.get("MAINLAYER_API_KEY", "")
 MAINLAYER_BASE_URL: str = os.environ.get(
-    "MAINLAYER_BASE_URL", "https://api.mainlayer.xyz"
+    "MAINLAYER_BASE_URL", "https://api.mainlayer.fr"
 )
 MAINLAYER_TIMEOUT_SECONDS: float = float(
     os.environ.get("MAINLAYER_TIMEOUT_SECONDS", "5.0")
@@ -217,5 +217,5 @@ def payment_required_body(amount_usd: float) -> dict:
         "amount_required": round(amount_usd, 6),
         "currency": "USD",
         "payment_endpoint": f"{MAINLAYER_BASE_URL}/v1/fund",
-        "documentation_url": "https://docs.mainlayer.xyz/getting-started",
+        "documentation_url": "https://docs.mainlayer.fr/getting-started",
     }
